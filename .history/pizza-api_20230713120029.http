@@ -1,0 +1,37 @@
+
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+
+
+# Create a cart
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=bjorn
+
+# Get a cart
+
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/jI0VaxiP9k/get
+
+# Add a pizza cart
+
+POST https://pizza-api.projectcodex.net/api/pizza-cart/add
+Content-Type: application/json
+
+
+{
+    "cart_code" : "jI0VaxiP9k",
+    "pizza_id" : 3
+}
+
+
+POST https://pizza-api.projectcodex.net/api/pizza-cart/add
+Content-Type: application/json
+
+
+{
+    "cart_code" : "jI0VaxiP9k",
+    "pizza_id" : 6
+}
+
+#

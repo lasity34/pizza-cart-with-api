@@ -1,0 +1,28 @@
+
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+
+
+# Create a cart
+
+
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=lasity34
+
+# Get a cart
+
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/yvXp83NNeA/get
+
+# Add a pizza cart
+
+POST https://pizza-api.projectcodex.net/api/pizza-cart/add
+Content-Type: application/json
+
+
+{
+    "cart-code" : "yvXp83NNeA"
+}
+
+#

@@ -1,0 +1,7 @@
+
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=Lindani

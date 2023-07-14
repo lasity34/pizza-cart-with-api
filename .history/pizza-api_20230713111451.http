@@ -1,0 +1,22 @@
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+### Create a cart
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=Andrew
+
+
+### Get a cart
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/kuyBHyQUG4/get
+
+### Add a pizza to the cart
+
+POST https://pizza-api.projectcodex.net/api/pizza-cart/add
+content-type: application/json
+
+{
+	"cart_code" : "kuyBHyQUG4",
+	"pizza_id" : 3
+}
+#

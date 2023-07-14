@@ -1,0 +1,19 @@
+
+
+GET https://pizza-api.projectcodex.net/api/pizzas
+
+
+
+# Create a cart
+
+
+
+GET https://pizza-api.projectcodex.net/api/pizza-cart/create?username=lasity34
+
+
+
+GET https://pizza-api.projectcodex.net/api/pizzas/username/lasity34
+
+
+
+POST https://pizza-api.projectcodex.net/api/pizzas/api/pizza-cart/add

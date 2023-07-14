@@ -7,7 +7,7 @@ function pizzaCart() {
     lastMessageAdded: "",
     pizzas: [],
     username: "bjorn",
-    cartId: "",
+    cartId: "jI0VaxiP9k",
     cartPizzas: [],
     cartTotal: 0.0,
     // increment(size) {
@@ -103,26 +103,11 @@ function pizzaCart() {
 
     // API
 
-    createCart() {
-      
-      const cartid = localStorage["cartId"];
-      
-      if (cartid) {
-        this.cartId = cartid;
-      } else {
-        const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
-        return axios.get(createCartURL).then((result) => {
-          this.cartId = result.data.cart_code;
-          localStorage["cartId"] = this.cartId;
-        });
-      }
-    },
-
     getCart() {
       const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`;
+
       return axios.get(getCartURL);
     },
-
     addPizza(pizzaId) {
       return axios.post(
         "https://pizza-api.projectcodex.net/api/pizza-cart/add",
@@ -142,13 +127,10 @@ function pizzaCart() {
       );
     },
     pay(amount) {
-      return axios.post(
-        "https://pizza-api.projectcodex.net/api/pizza-cart/pay",
-        {
-          cart_code: this.cartId,
-          amount,
-        }
-      );
+      return axios.post("https://pizza-api.projectcodex.net/api/pizza-cart/pay", {
+        cart_code: this.cartId,
+         amount
+      });
     },
     showCartData() {
       this.getCart().then((result) => {
@@ -164,12 +146,6 @@ function pizzaCart() {
           this.pizzas = result.data.pizzas;
         });
 
-      if (!this.cartId) {
-        this.createCart().then(() => {
-          this.showCartData();
-        });
-      }
-
       this.showCartData();
     },
     addPizzaToCart(pizzaId) {
@@ -183,24 +159,24 @@ function pizzaCart() {
       });
     },
     payForCart() {
-      this.pay(this.paymentAmount).then((result) => {
-        if (result.data.status === "failure") {
-          this.message = result.data.message;
-          setTimeout(() => (this.message = ""), 3000);
-        } else {
-          this.message = "Payment Received";
+      this.pay(this.paymentAmount)
+      .then(result => {
+       if ( result.data.status = 'failure') {
+        this.message = result.data.message;
+        setTimeout(() => this.message = '', 3000)
+       } else {
+        this.message = 'Payment Received'
 
-          setTimeout(() => {
-            this.message = "";
-            this.cartPizzas = [];
-            this.cartTotal = 0.0;
-            this.cartId = "";
-            this.paymentAmount = 0;
-            this.createCart();
-          }, 3000);
-        }
-      });
-    },
+        setTimeout(() => {
+          this.message = '';
+          this.cartPizzas = [];
+          this.cartTotal = 0.00;
+          this.cartId = ''
+        })
+
+       }
+      })
+    }
   };
 }
 

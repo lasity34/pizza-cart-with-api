@@ -104,13 +104,13 @@ function pizzaCart() {
     // API
 
     createCart() {
-      
+      const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
+
       const cartid = localStorage["cartId"];
-      
+
       if (cartid) {
         this.cartId = cartid;
       } else {
-        const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
         return axios.get(createCartURL).then((result) => {
           this.cartId = result.data.cart_code;
           localStorage["cartId"] = this.cartId;

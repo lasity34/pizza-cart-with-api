@@ -88,10 +88,10 @@
       </p>
     </div>
     <div class="mt-2 sm:mt-4">
-      <span x-text="message"></span>
+      <span x-html="payMessage"></span>
     </div>
 
-    <div class="mt-2 sm:mt-4"  x-cloak>
+    <div class="mt-2 sm:mt-4" x-show="total() !== 0" x-cloak>
       <label class="font-bold">Payment Amount:</label>
       <input
         placeholder="Enter payment here"
@@ -134,7 +134,7 @@
             </p>
           </div>
           <button
-            @click=""
+            @click="buy('small')"
             :disabled="smallAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
@@ -155,7 +155,7 @@
             </p>
           </div>
           <button
-            @click=""
+            @click="buy('medium')"
             :disabled="mediumAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
@@ -176,7 +176,7 @@
             </p>
           </div>
           <button
-            @click=""
+            @click="buy('large')"
             :disabled="largeAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >

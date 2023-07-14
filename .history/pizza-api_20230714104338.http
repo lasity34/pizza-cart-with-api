@@ -35,12 +35,12 @@ Content-Type: application/json
 
 #
 
-POST https://pizza-api.projectcodex.net/api/pizza-cart/pay
+POST https://pizza-api.projectcodex.net//api/pizza-cart/pay
 Content-Type: application/json
 
 
 {
-	"cart_code" : "jI0VaxiP9k",
+	"cart_code" : "df4rty56",
 	"amount" : 200
 
 }

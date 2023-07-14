@@ -139,7 +139,7 @@ function pizzaCart() {
     pay(amount) {
       return axios.post("https://pizza-api.projectcodex.net/api/pizza-cart/pay", {
         cart_code: this.cartId,
-         amount
+         amount: this.paymentAmount
       });
     },
     showCartData() {
@@ -171,10 +171,7 @@ function pizzaCart() {
     payForCart() {
       this.pay(this.paymentAmount)
       .then(result => {
-       if ( result.data.status = 'failure') {
-        this.message = result.data.message;
-        setTimeout(() => this.message = '', 3000)
-       }
+       console.log(result)
       })
     }
   };

@@ -20,52 +20,52 @@ function pizzaCart() {
     cartId: "jI0VaxiP9k",
     cartPizzas: [],
     cartTotal: 0.0,
-    // increment(size) {
-    //   if (size === "small" && this.smallAdded) {
-    //     this.smallAmount++;
-    //   } else if (size === "medium" && this.mediumAdded) {
-    //     this.mediumAmount++;
-    //   } else if (size === "large" && this.largeAdded) {
-    //     this.largeAmount++;
-    //   }
-    // },
-    // buy(size) {
-    //   if (size === "small") {
-    //     this.smallAdded = true;
-    //     this.smallAmount++; // increment the small pizza count
-    //     this.message = "Small Pizza has been added";
-    //   } else if (size === "medium") {
-    //     this.mediumAdded = true;
-    //     this.mediumAmount++; // increment the medium pizza count
-    //     this.message = "Medium Pizza has been added";
-    //   } else if (size === "large") {
-    //     this.largeAdded = true;
-    //     this.largeAmount++; // increment the large pizza count
-    //     this.message = "Large Pizza has been added";
-    //   }
-    //   this.toggleModal();
-    // },
-    // decrement(size) {
-    //   if (size === "small" && this.smallAmount > 0 && this.smallAdded) {
-    //     this.smallAmount--;
-    //     if (this.smallAmount === 0) this.smallAdded = false;
-    //   }
-    //   if (size === "medium" && this.mediumAmount > 0 && this.mediumAdded) {
-    //     this.mediumAmount--;
-    //     if (this.mediumAmount === 0) this.mediumAdded = false;
-    //   }
-    //   if (size === "large" && this.largeAmount > 0 && this.largeAdded) {
-    //     this.largeAmount--;
-    //     if (this.largeAmount === 0) this.largeAdded = false;
-    //   }
-    // },
-    // total() {
-    //   return (
-    //     this.smallAmount * this.prices.small +
-    //     this.mediumAmount * this.prices.medium +
-    //     this.largeAmount * this.prices.large
-    //   );
-    // },
+    increment(size) {
+      if (size === "small" && this.smallAdded) {
+        this.smallAmount++;
+      } else if (size === "medium" && this.mediumAdded) {
+        this.mediumAmount++;
+      } else if (size === "large" && this.largeAdded) {
+        this.largeAmount++;
+      }
+    },
+    buy(size) {
+      if (size === "small") {
+        this.smallAdded = true;
+        this.smallAmount++; // increment the small pizza count
+        this.message = "Small Pizza has been added";
+      } else if (size === "medium") {
+        this.mediumAdded = true;
+        this.mediumAmount++; // increment the medium pizza count
+        this.message = "Medium Pizza has been added";
+      } else if (size === "large") {
+        this.largeAdded = true;
+        this.largeAmount++; // increment the large pizza count
+        this.message = "Large Pizza has been added";
+      }
+      this.toggleModal();
+    },
+    decrement(size) {
+      if (size === "small" && this.smallAmount > 0 && this.smallAdded) {
+        this.smallAmount--;
+        if (this.smallAmount === 0) this.smallAdded = false;
+      }
+      if (size === "medium" && this.mediumAmount > 0 && this.mediumAdded) {
+        this.mediumAmount--;
+        if (this.mediumAmount === 0) this.mediumAdded = false;
+      }
+      if (size === "large" && this.largeAmount > 0 && this.largeAdded) {
+        this.largeAmount--;
+        if (this.largeAmount === 0) this.largeAdded = false;
+      }
+    },
+    total() {
+      return (
+        this.smallAmount * this.prices.small +
+        this.mediumAmount * this.prices.medium +
+        this.largeAmount * this.prices.large
+      );
+    },
     // paymentTotal() {
     //   if (this.paymentAmount < this.total()) {
     //     this.payMessage = `<p class='flex bg-red-600 text-white py-2 px-4 font-bold text-lg my-3 py-1'>R${(
@@ -137,9 +137,9 @@ function pizzaCart() {
       );
     },
     pay(amount) {
-      return axios.post("https://pizza-api.projectcodex.net/api/pizza-cart/pay", {
+      axios.post("https://pizza-api.projectcodex.net//api/pizza-cart/pay", {
         cart_code: this.cartId,
-         amount
+        amount: 200,
       });
     },
     showCartData() {
@@ -168,14 +168,8 @@ function pizzaCart() {
         this.showCartData();
       });
     },
-    payForCart() {
-      this.pay(this.paymentAmount)
-      .then(result => {
-       if ( result.data.status = 'failure') {
-        this.message = result.data.message;
-        setTimeout(() => this.message = '', 3000)
-       }
-      })
+    payCart() {
+
     }
   };
 }

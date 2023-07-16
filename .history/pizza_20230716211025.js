@@ -25,15 +25,14 @@ function pizzaCart() {
 
     login() {
       if (this.usernameInput.length < 2) {
-        this.usernameMessage = `<span class="mt-4 text-lg font-bold text-white bg-red-500 p-3 rounded inline-block">Username too Short</span>`;
+        this.usernameMessage = `<span class="mt-4 text-lg font-bold text-white bg-green-700 p-3 rounded inline-block">Username too Short</span>`;
         setTimeout(() => {
             this.usernameMessage = '';
         }, 2000); // Close after 2 seconds
       } else {
         this.username = this.usernameInput
         this.usernameInput = ''
-        this.usernameMessage =  `<span class="mt-4 text-xl font-bold text-gray-700 bg-white p-3 rounded inline-block">🛒 Welcome + ${ this.username} 🛒</span>
-        `;
+        this.usernameMessage =  `<span class="mt-4 text-lg font-bold text-white bg-green-700 p-3 rounded inline-block">🛒Welcome + ${ this.username}🛒</span>`;
         // Store username in the localStorage
         localStorage.setItem("username", this.username);
         setTimeout(() => {

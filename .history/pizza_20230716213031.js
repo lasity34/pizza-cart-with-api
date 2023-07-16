@@ -17,7 +17,7 @@ function pizzaCart() {
       if (this.show) {
         setTimeout(() => {
           this.show = false;
-        }, 2500); 
+        }, 2000); // Close after 2 seconds
       }
     },
 
@@ -124,8 +124,7 @@ function pizzaCart() {
     },
     addPizzaToCart(pizzaId, pizzaFlavor) {
       this.addPizza(pizzaId).then(() => {
-        this.message = `<span class="bg-green-500 text-white py-2 px-4 rounded shadow text-lg font-bold">${pizzaFlavor} has been added</span>`
-
+        this.message = `${pizzaFlavor} has been added`
         this.toggleModal()
         this.showCartData();
       });

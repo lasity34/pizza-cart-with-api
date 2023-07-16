@@ -101,7 +101,9 @@
         R<span x-text="(cartTotal).toFixed(2)">0.00</span>
       </p>
     </div>
-  
+    <div class="mt-2 sm:mt-4">
+      <span x-text="message"></span>
+    </div>
 
     <div class="mt-2 sm:mt-4"  x-cloak>
       <label class="font-bold">Payment Amount:</label>
@@ -258,7 +260,7 @@
     x-transition:leave-end="opacity-0 transform scale-90"
     class="fixed inset-0 flex items-center justify-center z-50"
   >
-    <div >
+    <div class="bg-green-700 text-white text-2xl rounded p-5 shadow-lg">
       <p x-html="message"></p>
     </div>
   </div>

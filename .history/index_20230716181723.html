@@ -28,13 +28,10 @@
     <section class="flex justify-center items-center">
       <h1 class="text-4xl pt-4 font-bold">Pizza Cart</h1>
     </section>
-
-    <section class="flex flex-col items-center mt-8 pb-4" x-show="!username">
-      <h3 class="text-md font-semibold mb-2 text-center text-gray-700">Please enter your username to create your cart:</h3>
+    <section class="flex flex-col items-center mt-4 pb-4">
+      <h3 class="text-md font-semibold text-center text-gray-700">Please type in your username to create your cart:</h3>
       <input type="text" x-modal="username" class="w-1/2 mt-2 p-2 rounded-md border-2 border-gray-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
-      <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Create Cart</button>
     </section>
-    
     
     <section  x-show=" cartTotal > 0 "
   class="shop-container my-3 sm:my-4 p-4 sm:p-5 flex flex-col text-xs sm:text-sm justify-center items-center"
@@ -124,7 +121,7 @@
   
   
 
-    <section x-show="username" class="pizza_columns mt-8">
+    <section class="pizza_columns mt-8">
       <div
         class="flex flex-col gap-4 mx-auto items-center lg:items-stretch lg:flex-row justify-center"
       >
@@ -194,7 +191,7 @@
       </div>
     </section>
     <!-- all pizzas display -->
-    <section class="mt-8" x-show="username">
+    <section class="mt-8">
         <div class="flex flex-col items-center">
             <template x-for="pizza in pizzas">
                 <div class="flex items-center border-b border-gray-200 bg-yellow-200 shadow-lg rounded-lg px-4 py-4 my-3 w-full max-w-xl">

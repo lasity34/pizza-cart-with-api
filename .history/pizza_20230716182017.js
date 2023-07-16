@@ -108,7 +108,6 @@ function pizzaCart() {
       
       if (!this.username) {
         this.usernameMessage = 'Please enter you username'
-        return;
       }
 
       const cartid = localStorage["cartId"];

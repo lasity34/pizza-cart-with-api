@@ -3,12 +3,11 @@ function pizzaCart() {
     quantity: 0,
     paymentAmount: 0,
     message: "",
-    usernameMessage: '',
     show: false,
     lastMessageAdded: "",
     pizzas: [],
     cartPizzas: [],
-    username: "",
+    username: "bjorn",
     cartId: "",
     cartTotal: 0.0,
     // increment(size) {
@@ -106,11 +105,6 @@ function pizzaCart() {
 
     createCart() {
       
-      if (!this.username) {
-        this.usernameMessage = 'Please enter you username'
-        return;
-      }
-
       const cartid = localStorage["cartId"];
       const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
       

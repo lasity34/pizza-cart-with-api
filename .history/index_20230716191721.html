@@ -30,7 +30,7 @@
       <p x-text="cartId"></p>
     </section>
 
-    <section class="flex flex-col items-center mt-8 pb-4">
+    <section class="flex flex-col items-center mt-8 pb-4" x-show="!createCart()">
       <h3 class="text-md font-semibold mb-2 text-center text-gray-700">Please enter your username to create your cart:</h3>
       <input type="text" x-model="username" class="w-1/2 mt-2 p-2 rounded-md border-2 border-gray-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
       <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="login()">Create Cart</button>
@@ -146,7 +146,7 @@
           </div>
           <button
             @click=""
-            
+            :disabled="smallAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
             Buy
@@ -167,7 +167,7 @@
           </div>
           <button
             @click=""
-       
+            :disabled="mediumAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
             Buy
@@ -188,7 +188,7 @@
           </div>
           <button
             @click=""
-       
+            :disabled="largeAdded"
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
             Buy

@@ -29,12 +29,9 @@ function pizzaCart() {
             this.usernameMessage = '';
         }, 2000); // Close after 2 seconds
       } else {
-        this.usernameMessage =  `🛒Welcome + ${ this.username}🛒`;
+        this.usernameMessage = 'Welcome ' + this.username;
         // Store username in the localStorage
         localStorage.setItem("username", this.username);
-        setTimeout(() => {
-          this.usernameMessage = '';
-      }, 2000); // Close after 2 seconds
         this.createCart();
       }
     },

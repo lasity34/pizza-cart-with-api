@@ -24,45 +24,36 @@ function pizzaCart() {
 
     login() {
       if (this.username.length < 2) {
-        this.usernameMessage = 'Username too Short';
-        setTimeout(() => {
-            this.usernameMessage = '';
-        }, 2000); // Close after 2 seconds
+          this.usernameMessage = 'Username too Short'
+          setTimeout(() => {
+              this.usernameMessage = ''
+          }, 2000); // Close after 2 seconds
       } else {
-        this.usernameMessage =  `🛒Welcome + ${ this.username}🛒`;
-        // Store username in the localStorage
-        localStorage.setItem("username", this.username);
-        setTimeout(() => {
-          this.usernameMessage = '';
-      }, 2000); // Close after 2 seconds
-        this.createCart();
+          this.usernameMessage = 'Welcome ' + this.username
+          this.createCart()
+         
       }
-    },
-    
+  },
+  
 
     createCart() {
-      return new Promise((resolve, reject) => {
-        if (!this.username) {
-          reject();
-          return;
-        }
-    
-        const cartid = localStorage["cartId"];
-        const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
-    
-        if (cartid) {
-          this.cartId = cartid;
-          resolve();
-        } else {
-          axios.get(createCartURL).then((result) => {
-            this.cartId = result.data.cart_code;
-            localStorage["cartId"] = this.cartId;
-            resolve();
-          });
-        }
-      });
+      if (!this.username) {
+        return;
+      }
+
+      const cartid = localStorage["cartId"];
+      const createCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`;
+      
+      if (cartid) {
+        this.cartId = cartid;
+      } else {
+        return axios.get(createCartURL).then((result) => {
+          this.cartId = result.data.cart_code;
+          localStorage["cartId"] = this.cartId;
+        });
+      }
     },
-    
+
     getCart() {
       const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`;
       return axios.get(getCartURL);
@@ -102,19 +93,14 @@ function pizzaCart() {
         this.cartTotal = cartData.total;
       });
     },
-    async init() {
+    init() {
       axios
         .get("https://pizza-api.projectcodex.net/api/pizzas")
         .then((result) => {
           this.pizzas = result.data.pizzas;
         });
 
-        const storedUsername = localStorage.getItem("username");
-        if (storedUsername) {
-          this.username = storedUsername;
-        }
-
-        await this.createCart()
+ 
 
       this.showCartData();
     },
@@ -141,10 +127,9 @@ function pizzaCart() {
             this.cartPizzas = [];
             this.cartTotal = 0.0;
             this.cartId = "";
-            localStorage.removeItem('username');
-            localStorage.removeItem('cartId');
+            localStorage['cartId']
             this.paymentAmount = 0;
-        
+            this.createCart();
           }, 3000);
         }
       });
@@ -157,3 +142,9 @@ document.addEventListener("alpine:init", () => {
 });
 
 
+
+     // if (!this.cartId) {
+      //   this.createCart().then(() => {
+      //     this.showCartData();
+      //   });
+      // }

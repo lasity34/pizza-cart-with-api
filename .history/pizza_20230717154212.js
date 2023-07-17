@@ -129,7 +129,7 @@ function pizzaCart() {
     },
     addPizzaToCart(pizzaId, pizzaFlavor) {
       this.addPizza(pizzaId).then(() => {
-        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold"> 🍕 ${pizzaFlavor} has been added to your cart🍕</span>`
+        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold"> 🍕 ${pizzaFlavor} has been added 🍕</span>`
 
         this.toggleModal()
         this.showCartData();

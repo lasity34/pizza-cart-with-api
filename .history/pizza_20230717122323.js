@@ -172,7 +172,7 @@ function pizzaCart() {
 
       if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
 
-        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">Pizza already added</span>`
+        console.log('Pizza is already in the last three list!');
         return;
       }
 

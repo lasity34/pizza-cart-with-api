@@ -129,11 +129,11 @@
   <section x-show="cartId" class="pizza_columns mt-8">
     <h1 class="text-3xl text-gray-900 text-center font-bold my-6">Featured Pizzas</h1>
     <div
-      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch mx-auto px-6 justify-items-center"
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 items-center mx-auto px-6 place-items-center"
     >
       <template x-for="pizza in featuredPizzas">
         <div :class="pizza.type" 
-          class="pizza_lg flex flex-col items-center rounded-lg shadow-lg overflow-hidden bg-white p-8 "
+          class="pizza_lg flex flex-col items-center rounded-lg shadow-lg overflow-hidden bg-white p-8"
         >
           <div class="flex-shrink-0">
             <div class="w-32 h-32 flex-shrink-0 mr-6 pizza-image" :class="pizza.flavour.replace(/(?:[\s&\d]+)/g, '_')"></div>
@@ -157,6 +157,7 @@
       </template>
     </div>
   </section>
+  
   
   
   

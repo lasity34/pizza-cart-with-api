@@ -40,7 +40,6 @@ function pizzaCart() {
         localStorage.setItem("username", this.username);
         setTimeout(() => {
           this.usernameMessage = '';
-          this.showLogin = false
       }, 2000); // Close after 2 seconds
         this.createCart();
       }
@@ -160,19 +159,16 @@ function pizzaCart() {
             localStorage.removeItem('username');
             localStorage.removeItem('cartId');
             this.paymentAmount = 0;
-            this.showLogin = true
+        
           }, 3000);
         }
       });
     },
-    postFeaturedPizza(pizzaId, pizzaFlavor) {
+    postFeaturedPizza(pizzaId) {
       const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-      this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">${pizzaFlavor} has been added to the features</span>`
-      this.toggleModal()
 
       if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
-
-        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">Pizza already added</span>`
+        console.log('Pizza is already in the last three list!');
         return;
       }
 
@@ -193,7 +189,8 @@ function pizzaCart() {
       ).then((result) => {
         const pizzas = result.data.pizzas
         this.featuredPizzas = pizzas.slice(Math.max(pizzas.length -3, 0))
-      
+       
+       
       })
     }
   };

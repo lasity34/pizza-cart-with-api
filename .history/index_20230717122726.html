@@ -125,53 +125,47 @@
 </section>
 
   
-  <!-- Featured pizzas -->
-  <section x-show="cartId" class="pizza_columns mt-8">
-    <h1 class="text-3xl text-gray-900 text-center font-bold my-6">Featured Pizzas</h1>
-    <div
-      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch mx-auto px-6 justify-items-center"
+  
+<section x-show="cartId" class="pizza_columns mt-8">
+  <div
+    class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 items-start mx-auto px-6"
+  >
+  <template x-for="pizza in featuredPizzas">
+    <div :class="pizza.type" 
+      class="pizza_lg flex flex-col rounded-lg shadow-lg overflow-hidden bg-white p-8"
     >
-      <template x-for="pizza in featuredPizzas">
-        <div :class="pizza.type" 
-          class="pizza_lg flex flex-col items-center rounded-lg shadow-lg overflow-hidden bg-white p-8 "
-        >
-          <div class="flex-shrink-0">
-            <div class="w-32 h-32 flex-shrink-0 mr-6 pizza-image" :class="pizza.flavour.replace(/(?:[\s&\d]+)/g, '_')"></div>
-          </div>
-          <div class="p-6 flex-grow flex flex-col justify-between">
-            <div class="flex-1">
-              <h3 class="mt-2 text-xl leading-7 font-bold text-white" x-text="pizza.flavour"></h3>
-              <p class="mt-3 text-base leading-6 text-white font-bold" x-text="pizza.size"></p>
-              <p class="mt-2 text-lg leading-6 font-semibold text-white">R<span x-text="pizza.price"></span></p>
-            </div>
-            <div class="mt-6 flex items-center">
-              <button
-                @click="addPizzaToCart(pizza.id, pizza.flavour)"
-                class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 transition-colors duration-150"
-              >
-                Buy
-              </button>
-            </div>
-          </div>
+      <div class="flex-shrink-0">
+        <div class="w-32 h-32 flex-shrink-0 mr-6 pizza-image" :class="pizza.flavour.replace(/(?:[\s&\d]+)/g, '_')"></div>
+      </div>
+      <div class="p-6 flex-grow flex flex-col justify-between">
+        <div class="flex-1">
+          <h3 class="mt-2 text-xl leading-7 font-bold text-white" x-text="pizza.flavour"></h3>
+          <p class="mt-3 text-base leading-6 text-white font-bold" x-text="pizza.size"></p>
+          <p class="mt-2 text-lg leading-6 font-semibold text-white">R<span x-text="pizza.price"></span></p>
         </div>
-      </template>
+        <div class="mt-6 flex items-center">
+          <button
+            @click="addPizzaToCart(pizza.id, pizza.flavour)"
+            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 transition-colors duration-150"
+          >
+            Buy
+          </button>
+      </div>
     </div>
-  </section>
-  
-  
-  
+  </template>
+  </div>
+</section>
 
     <!-- all pizzas display -->
     <section class="mt-8" x-show="cartId">
       <div class="flex flex-col items-center sm:px-2">
-        <h1 class="text-3xl text-yellow-800 font-bold my-6">Our list of pizzas</h1>
         <template x-for="pizza in pizzas">
-          <div :class="pizza.type" class="flex flex-col items-center sm:flex-row border-b border-gray-200 bg-yellow-50 shadow-lg rounded-lg p-6 my-3 w-full">
-            <div class="flex justify-center w-full sm:w-32 h-32 flex-shrink-0 mb-4 sm:mb-0">
+          <div :class="pizza.type" class="flex flex-col sm:flex-row items-start border-b border-gray-200 bg-yellow-50 shadow-lg rounded-lg p-6 my-3 w-full">
+            <div class="w-full sm:w-32 h-32 flex-shrink-0 mr-6 sm:mr-6 mb-4 sm:mb-0">
               <div class="w-32 h-32 flex-shrink-0 pizza-image" :class="pizza.flavour.replace(/(?:[\s&\d]+)/g, '_')"></div>
             </div>
-            <div class="flex-grow flex flex-col items-center sm:items-start justify-around text-center sm:text-left">
-              <div class="flex flex-col sm:flex-row justify-around items-center w-full">
+            <div class="flex-grow flex flex-col justify-around">
+              <div class="flex flex-col sm:flex-row justify-around items-center w-full text-center">
                 <h5 class="text-lg mr-4 font-bold text-white" x-text="pizza.flavour"></h5>
                 <span class="text-lg mr-4 font-bold text-white" x-text="pizza.size"></span>
                 <p class="text-lg text-white font-bold">R<span x-text="pizza.price"></span></p>
@@ -185,9 +179,6 @@
         </template>
       </div>
     </section>
-    
-    
-    
     
     
     

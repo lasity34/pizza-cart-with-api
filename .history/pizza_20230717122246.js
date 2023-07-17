@@ -167,12 +167,12 @@ function pizzaCart() {
     },
     postFeaturedPizza(pizzaId, pizzaFlavor) {
       const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-      this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">${pizzaFlavor} has been added to the features</span>`
+      this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">${pizzaFlavor} has been added</span>`
       this.toggleModal()
 
       if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
 
-        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">Pizza already added</span>`
+        console.log('Pizza is already in the last three list!');
         return;
       }
 

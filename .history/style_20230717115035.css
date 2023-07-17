@@ -40,7 +40,7 @@ input[type="number"] {
 
 
 .Regina {
- 
+  background-color: rgb(231, 1, 1);
   background-image: url('./images/pizza-regina-pan.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -49,8 +49,8 @@ input[type="number"] {
   overflow: hidden;
 }
 
-.Chicken_Mushroom {
- 
+.Chicken___Mushroom {
+  background-color: rgb(231, 1, 1);
   background-image: url('./images/chicken_mushroom.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -60,7 +60,7 @@ input[type="number"] {
 }
 
 .Four_Season {
-
+  background-color: rgb(231, 1, 1);
   background-image: url('./images/four_seasons.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -69,62 +69,9 @@ input[type="number"] {
   overflow: hidden;
 }
 
-.Hawaiian {
- 
+.hawaiian {
+  background-color: rgb(231, 1, 1);
   background-image: url('./images/hawaiian.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.Garlic_Mushroom {
- 
-  background-image: url('./images/garlic_mush.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-
-.Margherita {
-  
-  background-image: url('./images/margherita.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-
-.Tikka_Chicken {
-
-  background-image: url('./images/chicken_tikka.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-
-._Cheese {
-
-  background-image: url('./images/3_cheese.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.Sweet_Chilli_Chicken {
-
-  background-image: url('./images/pizza-sweetchilli-chicken-pan.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

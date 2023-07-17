@@ -1,0 +1,70 @@
+
+body {
+    max-width: 700px;
+    margin: 0 auto;
+  
+font-family: 'Tsukimi Rounded', sans-serif;
+}
+
+.shop-container {
+    background-color: rgb(215, 205, 113);
+    max-width: 95%;
+    margin: 1em auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+ text-indent: 10px;
+}
+
+[x-cloak] { display: none; }
+
+.chicken  {
+  background-color: rgb(206, 206, 6) !important;
+}
+
+.veggie {
+  background-color: rgb(113, 150, 59);
+
+}
+
+.meaty {
+  background-color: rgb(231, 1, 1);
+}
+
+
+.Regina {
+  background-color: rgb(231, 1, 1);
+  background-image: url('./images/pizza-regina-pan.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;  /* Makes the div a circle */
+  overflow: hidden;
+}
+
+.Chicken___Mushroom {
+  background-color: rgb(231, 1, 1);
+  background-image: url('./images/chicken_mushroom.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.Four_Season {
+  background-color: rgb(231, 1, 1);
+  background-image: url('./images/four_seasons.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}

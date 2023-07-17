@@ -49,12 +49,12 @@ input[type="number"] {
   overflow: hidden;
 }
 
-.Chicken___Mushroom {
-  background-color: rgb(231, 1, 1);
-  background-image: url('./chicken_mushroom.jpg');
+.Chicken--Mushroom {
+  background-color: rgb(231, 1, 1);  /* Change this to the color you want */
+  background-image: url('./chicken_mushroom.jpg'); 
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
+  border-radius: 50%; 
+  overflow: hidden;  
 }

@@ -162,7 +162,7 @@
         <template x-for="pizza in pizzas">
           <div :class="pizza.type" class="flex items-start border-b border-gray-200 bg-yellow-50 shadow-lg rounded-lg p-6 my-3 w-full max-w-xl">
             <div class="w-32 h-32 flex-shrink-0 mr-6">
-              <div class="w-32 h-32 flex-shrink-0 mr-6 pizza-image" :class="pizza.flavour.replace(/[\s&]/g, '_')"></div>
+              <img :class="pizza.flavour" class="w-full h-full border-none " />
             </div>
             <div class="flex-grow flex flex-col justify-around">
               <div class="flex justify-around items-center w-full text-center">

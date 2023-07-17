@@ -26,11 +26,11 @@ input[type="number"] {
 [x-cloak] { display: none; }
 
 .chicken  {
-  background-color: rgb(206, 206, 6) !important;
+  background-color: rgb(176, 176, 1) !important;
 }
 
 .veggie {
-  background-color: rgb(113, 150, 59);
+  background-color: rgb(79, 104, 41);
 
 }
 
@@ -45,16 +45,4 @@ input[type="number"] {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  border-radius: 50%;  /* Makes the div a circle */
-  overflow: hidden;
-}
-
-.Chicken___Mushroom {
-  background-color: rgb(231, 1, 1);
-  background-image: url('./chicken_mushroom.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  overflow: hidden;
 }

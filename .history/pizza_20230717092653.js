@@ -164,14 +164,6 @@ function pizzaCart() {
       });
     },
     postFeaturedPizza(pizzaId) {
-
-      const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-
-      if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
-        console.log('Pizza is already in the last three list!');
-        return;
-      }
-
       return axios.post(
         "https://pizza-api.projectcodex.net/api/pizzas/featured",
         {
@@ -179,7 +171,7 @@ function pizzaCart() {
           pizza_id : pizzaId
         }
       ).then(() => {
-        this.getFeaturedPizza()
+        this.showCartData()
       })
       
     },
@@ -188,8 +180,8 @@ function pizzaCart() {
         `https://pizza-api.projectcodex.net/api/pizzas/featured?username=bjorn`,
       ).then((result) => {
         const pizzas = result.data.pizzas
-        this.featuredPizzas = pizzas.slice(Math.max(pizzas.length -3, 0))
-        
+        this.featuredPizzas = pizza.slice(Math.max(pizza(pizzas.length -3, 0 )))
+        console.log(this.featuredPizzas)
        
       })
     }

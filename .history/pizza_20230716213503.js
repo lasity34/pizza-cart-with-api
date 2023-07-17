@@ -10,7 +10,6 @@ function pizzaCart() {
     lastMessageAdded: "",
     pizzas: [],
     cartPizzas: [],
-    featuredPizzas: [],
     cartId: "",
     cartTotal: 0.0,
     toggleModal() {
@@ -33,7 +32,7 @@ function pizzaCart() {
       } else {
         this.username = this.usernameInput
         this.usernameInput = ''
-        this.usernameMessage =  `<span class="mt-4 text-xl font-bold text-gray-700 bg-white p-3 rounded inline-block">🛒 Welcome ${ this.username} 🛒</span>
+        this.usernameMessage =  `<span class="mt-4 text-xl font-bold text-gray-700 bg-white p-3 rounded inline-block">🛒 Welcome + ${ this.username} 🛒</span>
         `;
         // Store username in the localStorage
         localStorage.setItem("username", this.username);
@@ -67,7 +66,7 @@ function pizzaCart() {
         }
       });
     },
-  
+    
     getCart() {
       const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`;
       return axios.get(getCartURL);
@@ -122,12 +121,10 @@ function pizzaCart() {
         await this.createCart()
 
       this.showCartData();
-
-      this.getFeaturedPizza()
     },
     addPizzaToCart(pizzaId, pizzaFlavor) {
       this.addPizza(pizzaId).then(() => {
-        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold"> 🍕 ${pizzaFlavor} has been added 🍕</span>`
+        this.message = `<span class="bg-white text-gray-800 text-2xl py-4 px-4 rounded shadow text-lg font-bold">${pizzaFlavor} has been added</span>`
 
         this.toggleModal()
         this.showCartData();
@@ -146,12 +143,10 @@ function pizzaCart() {
           this.toggleModal()
           setTimeout(() => (this.message = ""), 3000);
         } else {
-          this.message = `<span class="bg-yellow-100  py-2 px-4 rounded shadow text-lg font-bold">🥳 Payment Received! time to eat 🥳</span>`;
-          this.toggleModal();
+          this.message = "Payment Received";
 
           setTimeout(() => {
             this.message = "";
-            this.username = '';
             this.cartPizzas = [];
             this.cartTotal = 0.0;
             this.cartId = "";
@@ -163,36 +158,6 @@ function pizzaCart() {
         }
       });
     },
-    postFeaturedPizza(pizzaId) {
-
-      const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-
-      if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
-        console.log('Pizza is already in the last three list!');
-        return;
-      }
-
-      return axios.post(
-        "https://pizza-api.projectcodex.net/api/pizzas/featured",
-        {
-          username : this.username,
-          pizza_id : pizzaId
-        }
-      ).then(() => {
-        this.getFeaturedPizza()
-      })
-      
-    },
-    getFeaturedPizza() {
-      return axios.get(
-        `https://pizza-api.projectcodex.net/api/pizzas/featured?username=bjorn`,
-      ).then((result) => {
-        const pizzas = result.data.pizzas
-        this.featuredPizzas = pizzas.slice(Math.max(pizzas.length -3, 0))
-        
-       
-      })
-    }
   };
 }
 

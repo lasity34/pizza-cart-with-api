@@ -10,7 +10,6 @@ function pizzaCart() {
     lastMessageAdded: "",
     pizzas: [],
     cartPizzas: [],
-    featuredPizzas: [],
     cartId: "",
     cartTotal: 0.0,
     toggleModal() {
@@ -67,7 +66,7 @@ function pizzaCart() {
         }
       });
     },
-  
+    
     getCart() {
       const getCartURL = `https://pizza-api.projectcodex.net/api/pizza-cart/${this.cartId}/get`;
       return axios.get(getCartURL);
@@ -122,8 +121,6 @@ function pizzaCart() {
         await this.createCart()
 
       this.showCartData();
-
-      this.getFeaturedPizza()
     },
     addPizzaToCart(pizzaId, pizzaFlavor) {
       this.addPizza(pizzaId).then(() => {
@@ -164,35 +161,14 @@ function pizzaCart() {
       });
     },
     postFeaturedPizza(pizzaId) {
-
-      const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-
-      if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
-        console.log('Pizza is already in the last three list!');
-        return;
-      }
-
       return axios.post(
         "https://pizza-api.projectcodex.net/api/pizzas/featured",
         {
           username : this.username,
           pizza_id : pizzaId
         }
-      ).then(() => {
-        this.getFeaturedPizza()
-      })
-      
+      );
     },
-    getFeaturedPizza() {
-      return axios.get(
-        `https://pizza-api.projectcodex.net/api/pizzas/featured?username=bjorn`,
-      ).then((result) => {
-        const pizzas = result.data.pizzas
-        this.featuredPizzas = pizzas.slice(Math.max(pizzas.length -3, 0))
-        
-       
-      })
-    }
   };
 }
 

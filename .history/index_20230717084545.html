@@ -29,7 +29,7 @@
       <h1 class="text-4xl pt-4 font-bold">Crusty Creations</h1>
     </section>
 
-    <section class="flex flex-col items-center mt-8 pb-4" >
+    <section class="flex flex-col items-center mt-8 pb-4" x-show="">
       <h3 class="text-md font-semibold mb-2 text-center text-gray-700">Please enter name to start your pizza journey:</h3>
       <input type="text" x-model="usernameInput" class="w-1/2 mt-2 p-2 rounded-md border-2 border-gray-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
       <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="login()">Login</button>
@@ -131,27 +131,69 @@
       <div
         class="flex flex-col gap-4 mx-auto items-center lg:items-stretch lg:flex-row justify-center"
       >
-      <template x-for="pizza in featuredPizzas">
         <div
-          class="pizza_lg bg-red-500 rounded p-4 w-4/5 lg:w-4/5 flex-grow flex-shrink flex flex-col justify-between text-black items-center"
+          class="flex bg-blue-500 rounded p-4 w-4/5 lg:w-4/5 flex-grow flex-shrink flex flex-col justify-between text-black items-center"
         >
           <div class="flex-grow flex flex-col items-center justify-center">
-            <img src="./pizza.png" width="100" />
-            <h3 class="mb-2 font-bold" x-text="pizza.flavour"></h3>
-           <span class="mb-2 font-bold">R<span  x-text="pizza.price">R87.99</span></span> 
-            <p class="mb-4 font-bold" x-text="pizza.size">
-              
+            <img src="./pizza.png" width="50" />
+            <h3 class="mb-2 font-bold">Small Pizza</h3>
+            <h3 class="mb-2 font-bold">R27.99</h3>
+            <p class="mb-4">
+              A petite treat, this pizza packs a punch. Tangy pepperoni, earthy
+              mushrooms, and melted mozzarella on our homemade dough. 8" of
+              perfection.
             </p>
           </div>
           <button
-            @click="getFeaturedPizza()"
+            @click=""
+            
+            class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
+          >
+            Buy
+          </button>
+        </div>
+        <div
+          class="pizza_md bg-green-500 rounded p-4 w-4/5 lg:w-4/5 flex-grow flex-shrink flex flex-col justify-between text-black items-center"
+        >
+          <div class="flex-grow flex flex-col items-center justify-center">
+            <img src="./pizza.png" width="70" />
+            <h3 class="mb-2 font-bold">Medium Pizza</h3>
+            <h3 class="mb-2 font-bold">R57.99</h3>
+            <p class="mb-4">
+              Enjoy more with our 12" pizza. Savory pepperoni, sautéed
+              mushrooms, and gooey mozzarella atop our golden-brown, hand-tossed
+              dough.
+            </p>
+          </div>
+          <button
+            @click=""
        
             class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
           >
             Buy
           </button>
         </div>
-      </template>
+        <div
+          class="pizza_lg bg-red-500 rounded p-4 w-4/5 lg:w-4/5 flex-grow flex-shrink flex flex-col justify-between text-black items-center"
+        >
+          <div class="flex-grow flex flex-col items-center justify-center">
+            <img src="./pizza.png" width="100" />
+            <h3 class="mb-2 font-bold">Large Pizza</h3>
+            <h3 class="mb-2 font-bold">R87.99</h3>
+            <p class="mb-4">
+              Go big with our 16" pizza. Layered with spicy pepperoni, juicy
+              mushrooms, and bubbling mozzarella. Perfect for sharing or
+              satisfying the largest of appetites.
+            </p>
+          </div>
+          <button
+            @click=""
+       
+            class="bg-gray-300 hover:bg-gray-400 transition-colors duration-300 py-2 px-4 rounded font-bold"
+          >
+            Buy
+          </button>
+        </div>
       </div>
     </section>
     <!-- all pizzas display -->
@@ -164,12 +206,11 @@
                     </div>
                     <div class="ml-4 flex-grow flex justify-between w-3/4 items-center">
                         <h5 class="ml-2 text-lg font-bold text-black" x-text="pizza.flavour"></h5>
-                        <p x-text="pizza.size"></p>
                         <p class="text-lg text-black mt-5 mb-4 mr-6 font-bold">R<span x-text="pizza.price"></span></p>
                     </div>
                     <div>
-                      <button @click="addPizzaToCart(pizza.id, pizza.flavour)" class="bg-yellow-400 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Buy</button>
-                      <button @click="postFeaturedPizza(pizza.id)" class="bg-yellow-700 mt-2 hover:bg-yellow-900 text-white font-bold py-2 px-4 rounded border border-white border-opacity-50">Featured</button>
+                      <button @click="addPizzaToCart(pizza.id, pizza.flavour)" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Buy</button>
+                      <button @click="postFeaturedPizza(pizza.id)" class="bg-yellow-700 mt-2 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded border border-white border-opacity-50">Add featured</button>
 
                     </div>
                 </div>

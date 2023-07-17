@@ -131,16 +131,18 @@
       <div
         class="flex flex-col gap-4 mx-auto items-center lg:items-stretch lg:flex-row justify-center"
       >
-      <template x-for="pizza in featuredPizzas">
+      <template x-for="pizza in featuredPizza">
         <div
           class="pizza_lg bg-red-500 rounded p-4 w-4/5 lg:w-4/5 flex-grow flex-shrink flex flex-col justify-between text-black items-center"
         >
           <div class="flex-grow flex flex-col items-center justify-center">
             <img src="./pizza.png" width="100" />
             <h3 class="mb-2 font-bold" x-text="pizza.flavour"></h3>
-           <span class="mb-2 font-bold">R<span  x-text="pizza.price">R87.99</span></span> 
-            <p class="mb-4 font-bold" x-text="pizza.size">
-              
+            <h3 class="mb-2 font-bold" x-text="pizza.id">R87.99</h3>
+            <p class="mb-4">
+              Go big with our 16" pizza. Layered with spicy pepperoni, juicy
+              mushrooms, and bubbling mozzarella. Perfect for sharing or
+              satisfying the largest of appetites.
             </p>
           </div>
           <button
@@ -154,6 +156,7 @@
       </template>
       </div>
     </section>
+    <button>call feature</button>
     <!-- all pizzas display -->
     <section class="mt-8" x-show="cartId">
         <div class="flex flex-col items-center">
@@ -164,7 +167,6 @@
                     </div>
                     <div class="ml-4 flex-grow flex justify-between w-3/4 items-center">
                         <h5 class="ml-2 text-lg font-bold text-black" x-text="pizza.flavour"></h5>
-                        <p x-text="pizza.size"></p>
                         <p class="text-lg text-black mt-5 mb-4 mr-6 font-bold">R<span x-text="pizza.price"></span></p>
                     </div>
                     <div>

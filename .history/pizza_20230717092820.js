@@ -164,14 +164,6 @@ function pizzaCart() {
       });
     },
     postFeaturedPizza(pizzaId) {
-
-      const lastThreePizzaIds = this.featuredPizzas.slice(-3);
-
-      if (lastThreePizzaIds.some(pizza => pizza.id === pizzaId)) {
-        console.log('Pizza is already in the last three list!');
-        return;
-      }
-
       return axios.post(
         "https://pizza-api.projectcodex.net/api/pizzas/featured",
         {

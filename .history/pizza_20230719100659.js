@@ -7,7 +7,7 @@ function pizzaCart() {
     usernameInput: '',
     usernameMessage: '',
     show: false,
-    showLogin: localStorage.getItem("username") ? false : true ,
+    showLogin: localStorage.get("username") ? false : true ,
     lastMessageAdded: "",
     pizzas: [],
     cartPizzas: [],
